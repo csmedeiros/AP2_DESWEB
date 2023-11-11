@@ -69,11 +69,5 @@ const pegar_coisas = async (caminho) => {
     return dados;
 }
 
-/*
-pegar_coisas(`${url}/`).then(
-    (entrada) => {
-        for (atleta of entrada)
-        {preenche(atleta)}
-    }
-);
-*/
+var e = document.querySelector("select-panel")
+console.log(e.value)
