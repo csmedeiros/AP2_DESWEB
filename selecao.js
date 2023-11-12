@@ -7,10 +7,6 @@ if(sessionStorage.getItem("token")==null) {
 
 const url = "https://botafogo-atletas.mange.li";
 
-if(window.screen.width > 1024) {
-    
-}
-
 // Objeto para preencher cartoes dos(as) atletas
 
 const preenche = (atleta) => {
@@ -69,5 +65,10 @@ const pegar_coisas = async (caminho) => {
     return dados;
 }
 
-var e = document.querySelector("select-panel")
-console.log(e.value)
+const handleCategoria = (e) {
+    const cartao = e.target.closest("option")
+    const dados = pegar_coisas(url)
+    for(id in dados) {
+        preenche(id)
+    }
+}
