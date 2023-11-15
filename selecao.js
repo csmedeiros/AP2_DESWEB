@@ -7,10 +7,6 @@ if(sessionStorage.getItem("token")==null) {
 
 const url = "https://botafogo-atletas.mange.li";
 
-if(window.screen.width > 1024) {
-    
-}
-
 // Objeto para preencher cartoes dos(as) atletas
 
 const preenche = (atleta) => {
@@ -43,11 +39,10 @@ const preenche = (atleta) => {
 
 const handleClick = (e) => {
     const artigo = e.target.closest('article');
-    //cookie
-    document.cookie = `id=${artigo.dataset.id}`;
-    document.cookie = `nome_completo=${artigo.dataset.nome_completo}`;
-    document.cookie = `nascimento=${artigo.dataset.nascimento}`;
-    document.cookie = `altura=${artigo.dataset.altura}`;
+    sessionStorage.setItem('id', artigo.dataset.id);
+    sessionStorage.setItem('nome_completo', artigo.dataset.nome_completo);
+    sessionStorage.setItem('nascimento', artigo.dataset.nascimento);
+    sessionStorage.setItem('altura', artigo.dataset.altura);
 
     console.log(acha_cookie('nome_completo'));
     console.log(localStorage.getItem('id'));
@@ -67,7 +62,11 @@ const pegar_coisas = async (caminho) => {
     const resposta = await fetch(caminho);
     const dados = await resposta.json();
     return dados;
-}
+};
 
-var e = document.querySelector("select-panel")
-console.log(e.value)
+pegar_coisas('${url}/all').then(
+    (entrada) => {
+        for (atleta of entrada)
+        {preenche(atleta)}
+    }
+);
