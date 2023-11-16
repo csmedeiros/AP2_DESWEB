@@ -9,20 +9,21 @@
     <script src="selecao.js" defer></script>
 </head>
 <body>
-<div class="apresentacao">
-    <h1>Atletas Botafogo 2023-2</h1>
-</div>
-
+    <h1 class="apresentacao">Atletas Botafogo 2023-2</h1>
 <select id ="select-panel" class="select-panel">
     <option value="">Escolha o elenco</option>
-    <option onclick="masculino()" value="masculino">Masculino</option>
-    <option value="feminino">Feminino</option>
-    <option value="all">Elenco Completo</option>
+    <option id="option" onclick="masculino()" value="masculino">Masculino</option>
+    <option id="option" value="feminino">Feminino</option>
+    <option id="option" value="all">Elenco Completo</option>
 </select>
 <div class="btn-container">
-    <button class="button" value="masculino">Masculino</button>
-    <button class="button" value="feminino">Feminino</button>
-    <button class="button" value="all">Elenco Completo</button>
+    <button id="button1" class="button" value="masculino">Masculino</button>
+    <button id="button2" class="button" value="feminino">Feminino</button>
+    <button id="button3" class="button" value="all">Elenco Completo</button>
+</div>
+<div class="container-atletas">
+<div class="atletas" id="atletas">
+</div>
 </div>
 </body>
 

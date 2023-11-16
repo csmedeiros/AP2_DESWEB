@@ -3,9 +3,12 @@
 if(sessionStorage.getItem("token")==null) {
     window.location.assign("index.html")
 }
+
 // Url da API
 
-const url = "https://botafogo-atletas.mange.li";
+const url = "https://botafogo-atletas.mange.li/";
+
+
 
 // Objeto para preencher cartoes dos(as) atletas
 
@@ -15,7 +18,8 @@ const preenche = (atleta) => {
     imagem = document.createElement('img');
 
     container.dataset.id = atleta.id;
-    container.dataset.nome_completo = atleta.nome_completo;
+
+
 
 
     container.style.width = '15em';
@@ -31,25 +35,19 @@ const preenche = (atleta) => {
 
     container.onclick = handleClick;
 
-    document.body.appendChild(container);
+    document.getElementById('atletas').appendChild(container);
 
 }
 
-// Função para capturar evento de clique no cartão do(a) jogador(a)
+// Objeto para capturar evento de clique no cartão do(a) jogador(a)
 
 const handleClick = (e) => {
     const artigo = e.target.closest('article');
-    sessionStorage.setItem('id', artigo.dataset.id);
-    sessionStorage.setItem('nome_completo', artigo.dataset.nome_completo);
-    sessionStorage.setItem('nascimento', artigo.dataset.nascimento);
-    sessionStorage.setItem('altura', artigo.dataset.altura);
-
-    console.log(acha_cookie('nome_completo'));
-    console.log(localStorage.getItem('id'));
-    console.log(JSON.parse(localStorage.getItem('dados')).altura);
-
-    window.location = `outra.html?id=${artigo.dataset.id}&nome_completo=${artigo.dataset.nome_completo}`;
+    document.cookie = `id=${artigo.dataset.id}`;
+    window.location.assign(`detalhes.html`);
 }
+
+// Objeto para pegar os cookies
 
 const acha_cookie = (chave) => {
     const lista_de_cookies = document.cookie.split("; ");
@@ -58,25 +56,55 @@ const acha_cookie = (chave) => {
     return procurado.split("=")[1];
 }
 
+// Função para coletar os dados dos(as) atletas
+
 const pegar_coisas = async (caminho) => {
     const resposta = await fetch(caminho);
     const dados = await resposta.json();
+    console.log(dados);
     return dados;
 };
 
-<<<<<<< HEAD
-pegar_coisas('${url}/all').then(
-    (entrada) => {
-        for (atleta of entrada)
-        {preenche(atleta)}
+// Array de elementos HTML com cada um dos botões
+
+var buttons = [document.getElementById('button1'), document.getElementById('button2'), document.getElementById('button3')];
+
+// Função para tratar o clique nos botões, adicionando um EventListener a cada um
+
+const clickBotao = (e) => {
+    e.addEventListener('click', function() {
+    const containerAtletas = document.getElementById("atletas");
+    while(containerAtletas.firstChild) {
+        containerAtletas.removeChild(containerAtletas.firstChild);
     }
-);
-=======
-const handleCategoria = (e) {
-    const cartao = e.target.closest("option")
-    const dados = pegar_coisas(url)
-    for(id in dados) {
-        preenche(id)
-    }
+    var valor = e.value;
+    console.log(valor);
+    var atletas = pegar_coisas(url+valor);
+    atletas.then(data => {
+        data.forEach(preenche);
+    });
+});
 }
->>>>>>> bc03785d6bb93b25b34416eaee54bd85a5c9642a
+
+// Chamando a função para cada um dos botões
+
+buttons.forEach(clickBotao)
+
+// Variável para guardar a caixa de seleção
+
+var select = document.querySelector('select');
+
+// Adicionando um EventListener para a barra de seleção
+select.addEventListener('change', function () {
+    const containerAtletas = document.getElementById("atletas");
+    while(containerAtletas.firstChild) {
+        containerAtletas.removeChild(containerAtletas.firstChild);
+    }
+    var selecionada = this.options[this.selectedIndex];
+    var valor = selecionada.value;
+    console.log(valor);
+    var atletas = pegar_coisas(url+valor);
+    atletas.then(data => {
+        data.forEach(preenche);
+    });
+});

@@ -1,3 +1,4 @@
+// Função para a autenticação
 function auth() {
     const senha = document.getElementById('senha').value
     var inputHash = md5(senha)

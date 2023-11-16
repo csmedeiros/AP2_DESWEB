@@ -1,10 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
 body {
-    display: inline;
+    background-color: black;
 }
 
+.apresentacao {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20%;
+    font-family: 'Kanit';
+
+}
+
+
+
 button {
-        background-color: black;
-        color: white;
+    border-color: white;
+    border-radius: 40%;
+    background-color: black;
+    color: white;
+    font-family: 'Kanit';
+    line-height: 15px;
     }
     
 .select-panel {
@@ -12,6 +29,28 @@ button {
 }
 
 .btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.button {
+    margin-right: 10px;
+    width: 90px;
+    height: 45px;
+    text-align: center;
+}
+
+.atletas {
+    display: grid;
+    grid-gap: 20px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+    justify-content: center;
+}
+
+.container-atletas {
+    display: flex;
     justify-content: center;
 }
 
@@ -19,11 +58,30 @@ button {
     .select-panel {
         display: block
     }
-    .select-panel {    
+    .select-panel {
+        width: 180px;
+        height: 34px;
+        margin: auto;
         background-color: black;
         color: white;
+        margin-bottom: 30px;
     }    
     .button {
         display: none;
-    }  
+    }
+    .atletas {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .atletas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .atletas {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
