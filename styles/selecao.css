@@ -15,7 +15,7 @@ body {
 
 
 
-button {
+.button {
     border-color: white;
     border-radius: 40%;
     background-color: black;
@@ -32,12 +32,6 @@ button {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-}
-.button {
-    margin-right: 10px;
-    width: 90px;
-    height: 45px;
-    text-align: center;
 }
 
 .atletas {

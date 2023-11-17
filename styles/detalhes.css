@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+}
+
+.atleta {
+    display: grid;
+    justify-content: center;
+    background-color: white;
+}
+
+.cartao {
+    display: flex;
+    flex-direction: column;
+    background-color: gold;
+    justify-content: center;
+}

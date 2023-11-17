@@ -17,6 +17,57 @@ const pegar_coisas = async (caminho) => {
     return dados;
 };
 
-const id = acha_cookie("id");
-const dados = pegar_coisas(url+id);
-console.log(dados);
+const preenche = (e) => {
+    const id = e.id;
+    const nome = e.nome;
+    const nome_completo = e.nome_completo;
+    const descricao = e.descricao;
+    const posicao = e.posicao;
+    const nascimento = e.nascimento;
+    const altura = e.altura;
+    
+    const container_cartao = document.createElement("article");
+    container_cartao.className = "cartao";
+    const container_detalhes = document.createElement("article");
+    container_detalhes.className = "detalhes";
+    const img = document.createElement('img');
+    img.src = e.imagem;
+    const nome_text = document.createElement('h3');
+    nome_text.textContent = nome;
+    const descricao_text = document.createElement('h3');
+    descricao_text.textContent = descricao;
+    const nome_completo_text = document.createElement('h3');
+    nome_completo_text.textContent = nome_completo;
+    const nascimento_text = document.createElement('h3');
+    nascimento_text.textContent = nascimento;
+    const altura_text = document.createElement('h3');
+    altura_text.textContent = altura;
+    const posicao_text = document.createElement('h3');
+    posicao_text.textContent = posicao;
+
+    container_cartao.append(img);
+    container_cartao.append(img);
+    container_cartao.append(nome_text);
+    container_cartao.append(posicao);
+
+    container_detalhes.append(descricao_text);
+    container_detalhes.append(nome_completo_text);
+    container_detalhes.append(nascimento_text);
+    container_detalhes.append(altura_text);
+
+    document.getElementById("atleta").appendChild(container_cartao);
+    document.getElementById("atleta").appendChild(container_detalhes);
+};
+
+const id_atleta = acha_cookie("id");
+
+(async () => {
+    try {
+        const data = await pegar_coisas(url+id_atleta);
+        const id = data.id; // assuming the id is directly available in the data object
+        preenche(data);
+        console.log("The id element is: ", id);
+    } catch (error) {
+        alert("Failed to get data from API!\n\n" + error);
+    }
+})();
