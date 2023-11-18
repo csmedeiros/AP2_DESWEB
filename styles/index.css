@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
+
+body {
+    background-color: black;
+    justify-content: center;
+}
+
+.apresentacao {
+    justify-content: center;
+    color: white;
+    font-family: 'Kanit';
+    text-align: center;
+}
+
+.senha {
+    width: 250px;
+    height: 30px;
+    font-family: 'Kanit';
+    font-weight: bolder;
+    text-align: center;
+    font-size: larger;
+}
+
+.psenha {
+    font-family: 'Kanit';
+    color: gold;
+}
+
+.botao {
+    background-color: gold;
+    width: 100px;
+    height: 40px;
+    font-family: 'Kanit';
+    font-weight:bold;
+    border-radius: 10px;
+}
+
+.container-login {
+    color: white;
+    text-align: center;
+    margin: 100px;
+}
+
+.escudo {
+    margin-top: 100px;
+    width: 250px;
+    height: 250px;
+}

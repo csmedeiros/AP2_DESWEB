@@ -35,6 +35,7 @@ const preenche = (atleta) => {
 
     container.onclick = handleClick;
 
+     
     document.getElementById('atletas').appendChild(container);
 
 }
@@ -44,7 +45,7 @@ const preenche = (atleta) => {
 const handleClick = (e) => {
     const artigo = e.target.closest('article');
     document.cookie = `id=${artigo.dataset.id}`;
-    window.location.assign(`detalhes.html`);
+    window.location = 'detalhes.html?id='+artigo.dataset.id;
 }
 
 // Objeto para pegar os cookies

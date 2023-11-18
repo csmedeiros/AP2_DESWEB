@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     background-color: white;
-    border-radius: 20%;
+    border-radius: 10%;
     font-family: 'Kanit';
 
 }
@@ -17,15 +17,17 @@ body {
 
 .button {
     border-color: white;
-    border-radius: 40%;
+    border-radius: 10%;
     background-color: black;
     color: white;
+    margin: 10px;
     font-family: 'Kanit';
     line-height: 15px;
     }
     
 .select-panel {
     display: none;
+    font-family: 'Kanit';
 }
 
 .btn-container {

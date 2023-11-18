@@ -1,16 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
 body {
     background-color: black;
 }
 
+
+.voltar {
+    display: flex;
+    font-family: 'Kanit';
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    margin: auto;
+    justify-content:center ;
+    margin-top: 80px;
+}
 .atleta {
-    display: grid;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    background-color: white;
+    margin: 100px;
+    padding: 50px;
+    border-style:outset;
+    border-color: gold;
+
 }
 
 .cartao {
-    display: flex;
     flex-direction: column;
     background-color: gold;
+    font-family: 'Kanit';
+    margin: auto;
     justify-content: center;
+    text-align: center;
+    border-color: white;
+    border-style: double;
+    border-radius: 5px;
+    border-width: 5px;
+    margin: auto;
+    max-width: fit-content;
+    max-height: fit-content;
+    min-width: fit-content;
+    min-height: fit-content;
+}
+
+.detalhes {
+    font-family: 'Kanit';
+    color: white;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+
+    
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .atleta {
+        flex-direction: column;
+    }
+
+
 }
