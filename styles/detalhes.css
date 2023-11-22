@@ -11,8 +11,12 @@ body {
     height: 40px;
     font-size: 20px;
     margin: auto;
-    justify-content:center ;
+    justify-content: center;
     margin-top: 80px;
+    border-radius: 5px;
+    border-color: gold;
+    border-style: outset;
+    border-width: 5px;
 }
 .atleta {
     display: flex;
@@ -26,6 +30,7 @@ body {
 }
 
 .cartao {
+    display: flex;
     flex-direction: column;
     background-color: gold;
     font-family: 'Kanit';
@@ -49,8 +54,6 @@ body {
     justify-content: center;
     text-align: center;
     margin: 20px;
-
-    
 }
 
 
@@ -59,6 +62,4 @@ body {
     .atleta {
         flex-direction: column;
     }
-
-
 }
